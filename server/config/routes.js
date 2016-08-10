@@ -12,8 +12,8 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.get('/users', Users.index);
 app.get('/users/:_id', Users.show);
-// app.post('/users', Users.create);
-// app.put('/users/:id', Users.update);
+app.post('/users', Users.create);
+app.put('/users/:_id', Users.update);
 // app.delete('/users/:id', Users.delete);
 });
 //************END routes for users****************
