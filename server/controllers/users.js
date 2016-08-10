@@ -2,13 +2,11 @@ var mongoose =require('mongoose'),
     User =  mongoose.model('users');
 
 function catch_data(err,data){
-  this.donut = "jelly";
-  console.log('whatever');
+  console.log('in pre-response');
   if (err){
     this.json(err);
     return
   }
-  console.log(this.donut);
   this.json(data);
 }
 
