@@ -11,12 +11,17 @@ function catch_data(err,data){
 }
 
 function ObjConstructor(){
+  var self = this;
   this.index = function(req,res){
     User.find({}, catch_data.bind(res));
   }
-  this.create = function(data){
+  this.create = function(req, res) {
+    self.createData(req.body, catch_data.bind(res));
+  }
+  this.createData = function(data, cb){
     var user = new User(data);
-    user.save();
+
+    user.save(cb);
   }
   this.show = function(req,res){
     User.findOne(req.params, catch_data.bind(res));
