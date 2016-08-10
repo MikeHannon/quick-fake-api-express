@@ -26,5 +26,12 @@ function ObjConstructor(){
   this.show = function(req,res){
     User.findOne(req.params, catch_data.bind(res));
   }
+
+  //update is expecting a req.body with a name property in it.
+  this.update = function(req,res){
+    if (!req.body.name) return res.json({ error : 'no_name_in_body'});
+
+    User.update({ _id: req.params._id }, { $set : { name : req.body.name } }, catch_data.bind(res));
+  }
 }
 module.exports = new ObjConstructor();
