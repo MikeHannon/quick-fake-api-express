@@ -1,15 +1,7 @@
 //basic model
 var mongoose = require('mongoose');
 var userSchema= new mongoose.Schema({
-  name:String,
-  username:String,
-  email:String,
-  address:{},
-  phone:String,
-  website:String,
-  company:{},
-  posts:Array,
-  accountHistory:{},
+  name: { type: String, required: true }
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 mongoose.model('users', userSchema);
