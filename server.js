@@ -5,7 +5,6 @@ path = require('path');
 var faker = require('faker');
 
 
-var mongoose = require('mongoose');
 require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
